@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Videos</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="menu">
+  <ul>
+
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="renders.html">Renders</a></li>
+
+    <!-- LOGO CENTRADO -->
+    <li class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Logo">
+      </a>
+    </li>
+
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+
+  </ul>
+</nav>
+
+<section class="videos-page">
+
+<div class="videos-left">
+
+<div class="video-icon">
+→
+</div>
+
+<h1>VIDEOS</h1>
+<p>Escenas que dan vida a cada espacio</p>
+
+<a class="boton-video" href="videos-galeria.html">Ver más videos</a>
+
+</div>
+
+<div class="videos-right">
+
+<div class="videos-slider">
+
+<div class="video-item">
+<video autoplay muted loop playsinline>
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="video-item">
+<video autoplay muted loop playsinline>
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="video-item">
+<video autoplay muted loop playsinline>
+<source src="videos/video3.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const slider = document.querySelector(".videos-slider");
+
+slider.addEventListener("wheel", function(e){
+
+e.preventDefault();
+
+slider.scrollLeft += e.deltaY * 4;
+
+}, { passive:false });
+
+});
+
+</script>
+
+</body>
+</html>
