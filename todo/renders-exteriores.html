@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renders Exteriores</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const renders = document.querySelectorAll(".render");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+});
+
+renders.forEach(render => {
+observer.observe(render);
+});
+
+});
+
+</script>
+
+<body>
+
+<nav class="menu">
+  <ul>
+
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="renders.html">Renders</a></li>
+
+    <!-- LOGO CENTRADO -->
+    <li class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Logo">
+      </a>
+    </li>
+
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+
+  </ul>
+</nav>
+
+
+<section class="galeria-renders">
+
+<h1>Renders Exteriores</h1>
+
+<div class="grid-renders">
+
+<img class="render" src="images/render1.jpg" loading="lazy" onclick="abrirImagen(this.src)">
+<img class="render" src="images/render2.jpg" loading="lazy" onclick="abrirImagen(this.src)">
+<img class="render" src="images/render3.jpg" loading="lazy" onclick="abrirImagen(this.src)">
+<img class="render" src="images/render4.jpg" loading="lazy" onclick="abrirImagen(this.src)">
+<img class="render" src="images/render5.jpg" loading="lazy" onclick="abrirImagen(this.src)">
+<img class="render" src="images/render6.jpg" loading="lazy" onclick="abrirImagen(this.src)">
+
+</div>
+
+<div id="visor" class="visor" onclick="cerrarImagen()">
+
+<div class="flecha izquierda" onclick="event.stopPropagation(); imagenAnterior()">❮</div>
+
+<img id="imagen-grande" onclick="event.stopPropagation(); cerrarImagen()">
+
+<div class="flecha derecha" onclick="event.stopPropagation(); imagenSiguiente()">❯</div>
+
+</div>
+
+</section>
+<script>
+
+let imagenActual = 0;
+
+const imagenes = [
+"images/render1.jpg",
+"images/render2.jpg",
+"images/render3.jpg",
+"images/render4.jpg",
+"images/render5.jpg",
+"images/render6.jpg"
+];
+
+function abrirImagen(src){
+
+imagenActual = imagenes.indexOf(src);
+
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagen-grande").src = src;
+
+}
+
+function cerrarImagen(){
+document.getElementById("visor").style.display="none";
+}
+
+function imagenSiguiente(){
+
+imagenActual++;
+
+if(imagenActual >= imagenes.length){
+imagenActual = 0;
+}
+
+document.getElementById("imagen-grande").src = imagenes[imagenActual];
+
+}
+
+function imagenAnterior(){
+
+imagenActual--;
+
+if(imagenActual < 0){
+imagenActual = imagenes.length - 1;
+}
+
+document.getElementById("imagen-grande").src = imagenes[imagenActual];
+
+}
+
+document.addEventListener("keydown", function(event){
+
+if(event.key === "Escape"){
+cerrarImagen();
+}
+
+});
+
+</script>
+</body>
+</html>
