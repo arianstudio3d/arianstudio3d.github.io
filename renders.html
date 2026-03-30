@@ -12,6 +12,11 @@
 <body>
 
 <nav class="menu">
+  <button class="menu-toggle" aria-label="Abrir menú">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
   <ul>
 
     <li><a href="index.html">Inicio</a></li>
@@ -46,6 +51,21 @@
 </a>
 
 </section>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menuUl = document.querySelector('.menu ul');
 
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('abierto');
+    menuUl.classList.toggle('abierto');
+  });
+
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('abierto');
+      menuUl.classList.remove('abierto');
+    });
+  });
+</script>
 </body>
 </html>

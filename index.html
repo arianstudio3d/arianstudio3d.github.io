@@ -4,47 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Render 3D & Visualización Arquitectónica</title>
-
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
+ 
 <body>
-
+ 
 <nav class="menu">
+ 
+  <!-- Botón hamburguesa (solo visible en móvil) -->
+  <button class="menu-toggle" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+ 
   <ul>
-
     <li><a href="index.html">Inicio</a></li>
     <li><a href="renders.html">Renders</a></li>
-
+ 
     <!-- LOGO CENTRADO -->
     <li class="logo">
       <a href="index.html">
         <img src="images/logo.png" alt="Logo">
       </a>
     </li>
-
+ 
     <li><a href="servicios.html">Servicios</a></li>
     <li><a href="contacto.html">Contacto</a></li>
-
   </ul>
+ 
 </nav>
-
+ 
 <section class="hero">
-
     <div class="hero-text">
-
         <h1>Render 3D & Visualización Arquitectónica</h1>
-
         <p>Imágenes realistas para proyectos inmobiliarios</p>
-
         <a href="renders.html">
-    <button>Ver proyectos</button>
-</a>
-
+            <button>Ver proyectos</button>
+        </a>
     </div>
-
 </section>
+ 
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menuUl = document.querySelector('.menu ul');
+ 
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('abierto');
+    menuUl.classList.toggle('abierto');
+  });
+ 
+  // Cerrar menú al hacer click en un link
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('abierto');
+      menuUl.classList.remove('abierto');
+    });
+  });
+</script>
+ 
+</body>
+</html>
 
 </body>
 </html>
