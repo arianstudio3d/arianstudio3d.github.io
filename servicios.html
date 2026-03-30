@@ -94,12 +94,12 @@
     <!-- FOS / FOT -->
     <div class="servicio desplegable">
       <div class="servicio-header">
-        <h3>FOS / FOT</h3>
+        <h3>Superficie del proyecto</h3>
       </div>
 
       <div class="servicio-contenido">
-        <p>Cálculo de ocupación y edificabilidad.</p>
-        <p>Determinación de superficies construibles según normativa.</p>
+        <p>Definición de los metros cuadrados totales de la vivienda.</p>
+      
       </div>
     </div>
 
@@ -111,20 +111,18 @@
 
 <!-- SCRIPT CORRECTO -->
 <script>
-const headers = document.querySelectorAll(".servicio-header");
+const headers = document.querySelectorAll(".desplegable");
 
 headers.forEach(header => {
   header.addEventListener("click", () => {
 
-    const item = header.parentElement;
-
     document.querySelectorAll(".desplegable").forEach(el => {
-      if(el !== item){
+      if(el !== header){
         el.classList.remove("activo");
       }
     });
 
-    item.classList.toggle("activo");
+    header.classList.toggle("activo");
   });
 });
 </script>
